@@ -7,15 +7,12 @@ done
 rm -rf ~/node_modules
 unset NODE_PATH
 
-# 3) From the real project root
-cd /Users/toyhack/NixblyApp2/Nixbly-App/Nixbly
-
-# 4) Nuke caches and reinstall
+# 3) Nuke caches and reinstall
 watchman watch-del-all || true
 rm -rf node_modules pnpm-lock.yaml
 rm -rf $TMPDIR/metro-* $TMPDIR/haste-map-* ~/.cache/expo
 pnpm store prune
 pnpm install
 
-# 6) Start fresh
+# 4) Start fresh
 npx expo start -c
